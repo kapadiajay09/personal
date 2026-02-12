@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Only For You ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .box {
+      text-align: center;
+      color: white;
+      z-index: 2;
+      padding: 20px;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 26px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .yes {
+      background: #00ffb3;
+    }
+
+    .no {
+      background: #ff4d6d;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+  <h1>Hey Janvi❤️</h1>
+  <p>Will you be my Valentine?</p>
+  <button class="yes" onclick="nextPage(1)">Yes 😍</button>
+  <button class="no" onclick="alert('No option is under maintenance 😌')">No 🙃</button>
+</div>
+
+<script>
+  function nextPage(step) {
+    const content = document.getElementById("content");
+
+    if (step === 1) {
+      content.innerHTML = `
+        <h1>Question 1 💌</h1>
+        <p>If I was a bug in your code… would you fix me or keep me forever? 🥹</p>
+        <button class="yes" onclick="nextPage(2)">Keep Forever ❤️</button>
+        <button class="no" onclick="nextPage(2)">Fix You 😏</button>
+      `;
+    }
+
+    else if (step === 2) {
+      content.innerHTML = `
+        <h1>Question 2 😌</h1>
+        <p>What do you like more?</p>
+        <button class="yes" onclick="nextPage(3)">You + Me 💑</button>
+        <button class="no" onclick="nextPage(3)">Pizza 🍕</button>
+      `;
+    }
+
+    else if (step === 3) {
+      content.innerHTML = `
+        <h1>Last Question 😍</h1>
+        <p>Promise to never skip me like ads? 🥺</p>
+        <button class="yes" onclick="nextPage(4)">I Promise 🤞❤️</button>
+        <button class="no" onclick="nextPage(4)">Maybe 😶</button>
+      `;
+    }
+
+    else if (step === 4) {
+      content.innerHTML = `
+        <h1>YAYYYY 🎉❤️</h1>
+        <p>
+          Congratulations 🥳<br><br>
+          You just unlocked unlimited hugs 🤗<br>
+          Lifetime love subscription activated 💖<br><br>
+          Happy Valentine’s Day 💘
+        </p>
+      `;
+    }
+  }
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+</script>
+
+</body>
+</html>
